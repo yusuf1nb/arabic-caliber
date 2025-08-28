@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #e11b25; /* red */
+}
+
+body {
+  margin: 0;
+  background: #000425;
+  color: white;
+  font-family: 'Playfair Display', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+/* Primary button styling */
+.btn-primary {
+  @apply text-white font-semibold px-6 py-3 rounded-lg transition;
+  background-color: var(--primary);
+}
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+/* Primary text utility */
+.text-primary {
+  color: var(--primary);
+}
+
+/* Accent color for inputs (e.g., radios) */
+.accent-primary {
+  accent-color: var(--primary);
+}
+
+/* Consistent horizontal page padding */
+.section-padding {
+  padding-left: clamp(1rem, 4vw, 3rem);
+  padding-right: clamp(1rem, 4vw, 3rem);
+}
+
+/* Z-index helpers used in layout */
+.z-2 { z-index: 2; }
+.z-5 { z-index: 5; }
+
+/* Starry background across the whole viewport */
+.starry-night {
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.8) 0 1px, transparent 1px),
+    radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,0.7) 0 1px, transparent 1px),
+    radial-gradient(1.2px 1.2px at 70% 30%, rgba(255,255,255,0.9) 0 1.2px, transparent 1.2px),
+    radial-gradient(0.8px 0.8px at 90% 60%, rgba(255,255,255,0.6) 0 0.8px, transparent 0.8px),
+    radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,0.7) 0 1px, transparent 1px);
+  background-color: #000425;
+  background-repeat: repeat;
+  background-size: 400px 400px, 500px 500px, 600px 600px, 700px 700px, 800px 800px;
+}
+
+/* Twinkling stars sprinkled above the starry backdrop */
+.twinkling-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.95);
+  opacity: 0.2;
+  animation: twinkle 2.4s infinite ease-in-out;
+}
+
+/* Randomized positions and delays for a natural look */
+.twinkling-star:nth-child(1) { top: 8%; left: 12%; animation-delay: 0.1s; }
+.twinkling-star:nth-child(2) { top: 14%; left: 42%; animation-delay: 0.4s; }
+.twinkling-star:nth-child(3) { top: 22%; left: 72%; animation-delay: 0.8s; }
+.twinkling-star:nth-child(4) { top: 28%; left: 18%; animation-delay: 1.1s; }
+.twinkling-star:nth-child(5) { top: 36%; left: 54%; animation-delay: 0.2s; }
+.twinkling-star:nth-child(6) { top: 44%; left: 84%; animation-delay: 0.6s; }
+.twinkling-star:nth-child(7) { top: 52%; left: 8%; animation-delay: 1.4s; }
+.twinkling-star:nth-child(8) { top: 60%; left: 36%; animation-delay: 0.9s; }
+.twinkling-star:nth-child(9) { top: 66%; left: 64%; animation-delay: 0.5s; }
+.twinkling-star:nth-child(10) { top: 70%; left: 90%; animation-delay: 1.7s; }
+.twinkling-star:nth-child(11) { top: 78%; left: 26%; animation-delay: 1.9s; }
+.twinkling-star:nth-child(12) { top: 82%; left: 48%; animation-delay: 0.7s; }
+.twinkling-star:nth-child(13) { top: 12%; left: 88%; animation-delay: 1.3s; }
+.twinkling-star:nth-child(14) { top: 18%; left: 6%; animation-delay: 0.3s; }
+.twinkling-star:nth-child(15) { top: 26%; left: 30%; animation-delay: 1.0s; }
+.twinkling-star:nth-child(16) { top: 34%; left: 58%; animation-delay: 1.5s; }
+.twinkling-star:nth-child(17) { top: 42%; left: 78%; animation-delay: 0.2s; }
+.twinkling-star:nth-child(18) { top: 50%; left: 20%; animation-delay: 1.2s; }
+.twinkling-star:nth-child(19) { top: 58%; left: 46%; animation-delay: 0.4s; }
+.twinkling-star:nth-child(20) { top: 64%; left: 70%; animation-delay: 0.8s; }
+.twinkling-star:nth-child(21) { top: 72%; left: 14%; animation-delay: 1.6s; }
+.twinkling-star:nth-child(22) { top: 76%; left: 40%; animation-delay: 0.6s; }
+.twinkling-star:nth-child(23) { top: 84%; left: 60%; animation-delay: 1.8s; }
+.twinkling-star:nth-child(24) { top: 88%; left: 82%; animation-delay: 0.9s; }
+.twinkling-star:nth-child(25) { top: 32%; left: 44%; animation-delay: 0.5s; }
+.twinkling-star:nth-child(26) { top: 16%; left: 66%; animation-delay: 1.1s; }
+.twinkling-star:nth-child(27) { top: 6%; left: 24%; animation-delay: 0.7s; }
+
+@keyframes twinkle {
+  0% { opacity: 0.2; transform: scale(1); }
+  40% { opacity: 0.9; transform: scale(1.6); }
+  60% { opacity: 0.5; transform: scale(1.1); }
+  100% { opacity: 0.2; transform: scale(1); }
+}
