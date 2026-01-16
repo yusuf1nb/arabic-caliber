@@ -232,15 +232,15 @@ function App() {
       document.documentElement.scrollHeight - window.innerHeight;
     const scrollProgress = Math.min(scrollY / totalHeight, 1);
 
-    // Consistent gradient colors matching CSS
+    // Consistent gradient colors matching CSS - brighter for mobile visibility
     const darkBlue = `#000425`; // Deep dark blue
-    const brightBlue = `#062a8c`; // Brighter blue
+    const brightBlue = `#0a3a9c`; // Brighter blue for better mobile visibility
 
     // Simple progression using the same gradient
     if (scrollProgress < 0.5) {
       // Gradient from dark to bright and back to dark
       return {
-        background: `linear-gradient(135deg, ${darkBlue} 30%, ${brightBlue} 50%, ${darkBlue} 100%)`,
+        background: `linear-gradient(135deg, ${darkBlue} 20%, ${brightBlue} 50%, ${darkBlue} 100%)`,
         transition: "background 0.3s ease-out",
         minHeight: "100vh",
       };
@@ -263,7 +263,10 @@ function App() {
         zIndex: 1,
       }}>
       {/* Language Switcher */}
-      <div className={`fixed top-4 z-50 ${language === "ar" ? "left-4" : "right-4"}`}>
+      <div
+        className={`fixed top-4 z-50 ${
+          language === "ar" ? "left-4" : "right-4"
+        }`}>
         <button
           onClick={toggleLanguage}
           className="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition font-semibold border-2 border-primary">
@@ -272,7 +275,7 @@ function App() {
       </div>
 
       {/* Stars Background - Fixed */}
-      <div className="fixed inset-0 starry-night opacity-80 pointer-events-none z-0"></div>
+      <div className="fixed inset-0 starry-night opacity-60 pointer-events-none z-0"></div>
       {/* Palm trees silhouette - Background left side */}
       <img
         src="/palm.png"
@@ -283,8 +286,10 @@ function App() {
           width: "auto",
           maxWidth: "40vw",
           objectFit: "cover",
-          objectPosition: "bottom",
+          objectPosition: "center bottom",
           display: "block",
+          clipPath: "inset(5% 0 0 0)",
+          WebkitClipPath: "inset(5% 0 0 0)",
         }}
       />
       {/* Cheetah silhouette - Background right side */}
@@ -412,9 +417,7 @@ function App() {
               <h3 className="text-xl font-semibold mb-3 font-title">
                 {t("premiumFiberOptics")}
               </h3>
-              <p className="text-gray-300">
-                {t("premiumFiberOpticsDesc")}
-              </p>
+              <p className="text-gray-300">{t("premiumFiberOpticsDesc")}</p>
             </div>
 
             {/* Quality Point 2 */}
@@ -422,9 +425,7 @@ function App() {
               <h3 className="text-xl font-semibold mb-3 font-title">
                 {t("advancedLedTechnology")}
               </h3>
-              <p className="text-gray-300">
-                {t("advancedLedTechnologyDesc")}
-              </p>
+              <p className="text-gray-300">{t("advancedLedTechnologyDesc")}</p>
             </div>
 
             {/* Quality Point 3 */}
@@ -439,10 +440,10 @@ function App() {
 
             {/* Quality Point 4 */}
             <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-3 font-title">{t("smartControls")}</h3>
-              <p className="text-gray-300">
-                {t("smartControlsDesc")}
-              </p>
+              <h3 className="text-xl font-semibold mb-3 font-title">
+                {t("smartControls")}
+              </h3>
+              <p className="text-gray-300">{t("smartControlsDesc")}</p>
             </div>
 
             {/* Quality Point 5 */}
@@ -450,17 +451,15 @@ function App() {
               <h3 className="text-xl font-semibold mb-3 font-title">
                 {t("premiumVipCarCare")}
               </h3>
-              <p className="text-gray-300">
-                {t("premiumVipCarCareDesc")}
-              </p>
+              <p className="text-gray-300">{t("premiumVipCarCareDesc")}</p>
             </div>
 
             {/* Quality Point 6 */}
             <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-3 font-title">{t("customPatterns")}</h3>
-              <p className="text-gray-300">
-                {t("customPatternsDesc")}
-              </p>
+              <h3 className="text-xl font-semibold mb-3 font-title">
+                {t("customPatterns")}
+              </h3>
+              <p className="text-gray-300">{t("customPatternsDesc")}</p>
             </div>
           </div>
         </div>
@@ -493,7 +492,7 @@ function App() {
               <button
                 className="w-full btn-primary"
                 onClick={() => {
-                  setSelectedPackage(`${t("starlights500")} - 500 SAR`);
+                  setSelectedPackage(`${t("starlights500")}`);
                   setShowForm(true);
                 }}>
                 {t("choose500")}
@@ -516,7 +515,7 @@ function App() {
               <button
                 className="w-full btn-primary"
                 onClick={() => {
-                  setSelectedPackage(`${t("starlights1000")} - 1000 SAR`);
+                  setSelectedPackage(`${t("starlights1000")}`);
                   setShowForm(true);
                 }}>
                 {t("choose1000")}
@@ -536,7 +535,7 @@ function App() {
               <button
                 className="w-full btn-primary"
                 onClick={() => {
-                  setSelectedPackage(`${t("starlights1500")} - 1500 SAR`);
+                  setSelectedPackage(`${t("starlights1500")}`);
                   setShowForm(true);
                 }}>
                 {t("choose1500")}
@@ -575,26 +574,24 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             <div className="text-center">
-              <h3 className="text-xl font-semibold mb-2 font-title">{t("premiumQuality")}</h3>
-              <p className="text-gray-400">
-                {t("premiumQualityDesc")}
-              </p>
+              <h3 className="text-xl font-semibold mb-2 font-title">
+                {t("premiumQuality")}
+              </h3>
+              <p className="text-gray-400">{t("premiumQualityDesc")}</p>
             </div>
 
             <div className="text-center">
-              <h3 className="text-xl font-semibold mb-2 font-title">{t("fastService")}</h3>
-              <p className="text-gray-400">
-                {t("fastServiceDesc")}
-              </p>
+              <h3 className="text-xl font-semibold mb-2 font-title">
+                {t("fastService")}
+              </h3>
+              <p className="text-gray-400">{t("fastServiceDesc")}</p>
             </div>
 
             <div className="text-center">
               <h3 className="text-xl font-semibold mb-2 font-title">
                 {t("satisfactionGuaranteed")}
               </h3>
-              <p className="text-gray-400">
-                {t("satisfactionGuaranteedDesc")}
-              </p>
+              <p className="text-gray-400">{t("satisfactionGuaranteedDesc")}</p>
             </div>
           </div>
         </div>
@@ -606,16 +603,14 @@ function App() {
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8 font-title">
             {t("getInTouch")}
           </h2>
-          <p className="text-xl text-gray-300 mb-12">
-            {t("contactText")}
-          </p>
+          <p className="text-xl text-gray-300 mb-12">{t("contactText")}</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div className="bg-gray-800 p-8 rounded-lg">
               <h3 className="text-2xl font-semibold mb-4 text-primary font-title">
                 {t("callUs")}
               </h3>
-              <p className="text-gray-300 text-lg mb-2">+966 50 123 4567</p>
+              <p className="text-gray-300 text-lg mb-2">+966 58 125 6368</p>
               <p className="text-gray-400">{t("available7Days")}</p>
             </div>
 
@@ -645,9 +640,7 @@ function App() {
       {/* Footer */}
       <footer className="py-8 section-padding relative z-10 border-t border-gray-700/30">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-gray-400">
-            {t("copyright")}
-          </p>
+          <p className="text-gray-400">{t("copyright")}</p>
         </div>
       </footer>
 
@@ -1006,9 +999,7 @@ function App() {
               <p className="text-xl text-gray-300 mb-2">
                 {t("successMessage")}
               </p>
-              <p className="text-gray-400">
-                {t("successMessage2")}
-              </p>
+              <p className="text-gray-400">{t("successMessage2")}</p>
             </div>
             <button
               onClick={() => setShowSuccess(false)}

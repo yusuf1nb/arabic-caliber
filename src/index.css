@@ -249,3 +249,18 @@ body {
   60% { opacity: 0.5; transform: scale(1.1); }
   100% { opacity: 0.2; transform: scale(1); }
 }
+
+/* Mobile-specific adjustments for better color rendering */
+@media (max-width: 768px) {
+  /* Ensure better color visibility on mobile devices */
+  .starry-night {
+    opacity: 0.5 !important;
+  }
+  
+  /* Improve palm tree visibility on mobile */
+  img[src="/palm.png"] {
+    filter: brightness(1.1) contrast(1.05);
+    -webkit-clip-path: inset(5% 0 0 0);
+    clip-path: inset(5% 0 0 0);
+  }
+}
