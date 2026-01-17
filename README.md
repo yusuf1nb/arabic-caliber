@@ -70,7 +70,7 @@ The website uses a red and dark gray color scheme to match the Arabic Caliber br
 
 ## Contact
 
-For questions about this website, please contact Arabic Caliber at info@arabiccaliber.com
+For questions about this website, please contact Arabic Caliber at arabic.caliber@gmail.com
 
 
 

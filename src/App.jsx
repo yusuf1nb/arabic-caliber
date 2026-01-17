@@ -148,7 +148,7 @@ function App() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://formspree.io/f/meeojqep", {
+      const response = await fetch("https://formspree.io/f/mykkkvwo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -619,7 +619,7 @@ function App() {
                 {t("emailUs")}
               </h3>
               <p className="text-gray-300 text-lg mb-2">
-                info@arabiccaliber.com
+                arabic.caliber@gmail.com
               </p>
               <p className="text-gray-400">{t("quickResponse")}</p>
             </div>
